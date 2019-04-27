@@ -12,7 +12,25 @@ All components in this collection were designed with the following in mind. They
 
 ## Installation
 
-Whatever comes before `aplha`, and then even ten times as much before that, this is what React Shipyard is currently in. Information on how to install will be added to this README.md soon.
+Install from NPM:
+
+```bash
+npm install --save-dev react-shipyard
+```
+
+## Usage
+
+Import it into your code:
+
+```javascript static
+import { Dialog } from 'react-shipyard';
+
+const Example = () => (
+    <Dialog type="success">
+        <p>Installation was successful!</p>
+    </Dialog>
+)
+```
 
 ## Documentation
 

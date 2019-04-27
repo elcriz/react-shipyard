@@ -1,10 +1,24 @@
-### Install from NPM
+### Installation
 
-An example will follow soon.
+Install from NPM:
 
-### Import Shipyard into your code
+```bash
+npm install --save-dev react-shipyard
+```
 
-An example will follow soon.
+### Usage
+
+Import it into your code:
+
+```javascript static
+import { Dialog } from 'react-shipyard';
+
+const Example = () => (
+    <Dialog type="success">
+        <p>Installation was successful!</p>
+    </Dialog>
+);
+```
 
 ### Using the library without React
 
