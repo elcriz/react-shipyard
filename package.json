@@ -1,10 +1,9 @@
 {
   "name": "react-shipyard",
-  "description": "React Component library",
+  "description": "A React Component library with accessible, semantically correct React components.",
   "version": "0.1.0",
   "author": "Christiaan Hemerik",
   "license": "MIT",
-  "private": true,
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
