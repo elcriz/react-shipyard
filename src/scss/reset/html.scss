@@ -1,0 +1,14 @@
+/*
+1. NOTE
+Makes sure its children can use complete height of the html element as minimum height and set a sticky footer if needed.
+Use 'height'. Do not use 'min-height' because this will break functionality. Don't know why.
+Use '100%'. Do not use '100vh' because this will **always** create scroll bars in iOS Safari and other mobile webbrowsers.
+In iOS Safari and other mobile browsers 100vh = viewport height without bars = scrollbars with viewport with bars.
+Also as a result '100%' makes sure the bars on mobile webbrowsers are forced when no scrollbars are needed.
+More about 100vh with mobile browsers on:
+https://nicolas-hoizey.com/2015/02/viewport-height-is-taller-than-the-visible-part-of-the-document-in-some-mobile-browsers.html
+*/
+
+html {
+	height: 100%; /* 1 */
+}

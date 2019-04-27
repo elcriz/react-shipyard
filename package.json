@@ -1,17 +1,32 @@
 {
   "name": "components",
+  "description": "React Component library",
   "version": "0.1.0",
+  "author": "Christiaan Hemerik",
+  "license": "MIT",
   "private": true,
-  "dependencies": {
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-scripts": "3.0.0"
-  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "styleguide": "styleguidist server",
+    "styleguide:build": "styleguidist build"
+  },
+  "dependencies": {
+    "bourbon": "5.1.0",
+    "classnames": "^2.2.6",
+    "node-sass": "^4.12.0",
+    "node-sass-tilde-importer": "1.0.2",
+    "normalize.scss": "github:AanZee/normalize.scss#8.0.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-scripts": "3.0.0",
+    "reset-css": "4.0.1",
+    "stylelint": "9.10.1",
+    "stylelint-declaration-block-no-ignored-properties": "1.1.0",
+    "stylelint-declaration-strict-value": "1.1.2",
+    "stylelint-order": "2.2.1"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -27,5 +42,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "react-styleguidist": "^9.0.8"
   }
 }

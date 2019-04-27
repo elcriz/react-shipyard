@@ -1,0 +1,22 @@
+:focus {
+	outline: none;
+}
+
+::-moz-focus-inner {
+	border: 0;
+}
+
+a:focus,
+button:focus,
+input:focus,
+textarea:focus {
+	box-shadow: $box-shadow-focus;
+}
+
+a:focus,
+button:focus {
+	&:active,
+	&:hover {
+		box-shadow: none;
+	}
+}

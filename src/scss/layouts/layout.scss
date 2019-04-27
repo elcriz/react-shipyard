@@ -1,0 +1,571 @@
+$layout-section-bordered-border: $border-ui-90 !default;
+
+$layout-section-rounded-border-radius-hand-and-smaller: $border-radius-100 !default;
+$layout-section-rounded-border-radius-lap-and-larger: $border-radius-200 !default;
+
+$layout-section-colored-background-color: $color-background-colored !default;
+$layout-section-neutral-background-color: $color-background-neutral !default;
+$layout-section-light-background-color: $color-background-light !default;
+$layout-section-dark-background-color: $color-background-dark !default;
+
+$layout-section-elevated-box-shadow: $box-shadow !default;
+
+$layout-column-spacing-hand-and-smaller: $spacing;
+$layout-column-spacing-lap-and-larger: $spacing * 2;
+
+$layout-column-spacing-90-hand-and-smaller: $spacing * 0.75;
+$layout-column-spacing-90-lap-and-larger: $spacing;
+
+$layout-column-one-third-percentage: 33.33%;
+$layout-column-two-thirds-percentage: 66.67%;
+
+// The default layout spacing values for margins and paddings
+$layout-default-spacing-palm-and-smaller: $spacing * 2;
+$layout-default-spacing-hand: $spacing * 3;
+$layout-default-spacing-lap: $spacing * 4;
+$layout-default-spacing-desk-and-larger: $spacing * 5;
+
+// The layout spacing variations grouped in a list. Will be used for generated chunks of CSS for the modifiers
+$layout-spacing-variations: (
+	60: (
+		palm-and-smaller: $spacing,
+		hand: $spacing,
+		lap: $spacing,
+		desk-and-larger: $spacing
+	),
+	70: (
+		palm-and-smaller: $spacing,
+		hand: $spacing * 1.25,
+		lap: $spacing * 1.5,
+		desk-and-larger: $spacing * 1.75
+	),
+	80: (
+		palm-and-smaller: $spacing * 1.5,
+		hand: $spacing * 1.5,
+		lap: $spacing * 2,
+		desk-and-larger: $spacing * 2.5
+	),
+	90: (
+		palm-and-smaller: $spacing * 1.5,
+		hand: $spacing * 2,
+		lap: $spacing * 3,
+		desk-and-larger: $spacing * 4
+	),
+	200: (
+		palm-and-smaller: $spacing * 2,
+		hand: $spacing * 4,
+		lap: $spacing * 6,
+		desk-and-larger: $spacing * 8
+	),
+	300: (
+		palm-and-smaller: $spacing * 2,
+		hand: $spacing * 5,
+		lap: $spacing * 8,
+		desk-and-larger: $spacing * 11
+	)
+);
+
+// Generates media queries with the provided spacing properties
+@mixin layout-get-ranges($properties, $ranges) {
+	@include media(0, $range-palm) {
+		@each $property in $properties {
+			#{$property}: map-get($ranges, 'palm-and-smaller');
+		}
+	}
+	@include media($range-hand) {
+		@each $property in $properties {
+			#{$property}: map-get($ranges, 'hand');
+		}
+	}
+	@include media($range-lap) {
+		@each $property in $properties {
+			#{$property}: map-get($ranges, 'lap');
+		}
+	}
+	@include media($range-desk, false) {
+		@each $property in $properties {
+			#{$property}: map-get($ranges, 'desk-and-larger');
+		}
+	}
+}
+
+.layout {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	flex-shrink: 0;
+}
+
+.layout__section {
+	display: flex;
+	flex-direction: column;
+	flex-shrink: 0;
+
+	&:not(:first-child) {
+		@include media(0, $range-palm) {
+			margin-top: $layout-default-spacing-palm-and-smaller;
+		}
+		@include media($range-hand) {
+			margin-top: $layout-default-spacing-hand;
+		}
+		@include media($range-lap) {
+			margin-top: $layout-default-spacing-lap;
+		}
+		@include media($range-desk, false) {
+			margin-top: $layout-default-spacing-desk-and-larger;
+		}
+	}
+
+	&:last-child {
+		flex-grow: 1;
+	}
+}
+
+.layout__section--spacing-0 {
+
+	> :not(:first-child) {
+		margin-top: 0;
+	}
+}
+
+@each $layout-spacing-variation-city-block, $layout-spacing-variation-ranges in $layout-spacing-variations {
+
+	.layout__section--spacing-#{$layout-spacing-variation-city-block} {
+
+		> :not(:first-child) {
+			@include layout-get-ranges('margin-top', $layout-spacing-variation-ranges);
+		}
+	}
+}
+
+.layout__section--spaced-0 {
+
+	&:not(:first-child) {
+		margin-top: 0;
+	}
+}
+
+@each $layout-spacing-variation-city-block, $layout-spacing-variation-ranges in $layout-spacing-variations {
+
+	.layout__section--spaced-#{$layout-spacing-variation-city-block} {
+
+		&:not(:first-child) {
+			@include layout-get-ranges('margin-top', $layout-spacing-variation-ranges);
+		}
+	}
+}
+
+.layout__section--bordered {
+	border: $layout-section-bordered-border;
+}
+
+.layout__section--boxed {
+	border: $layout-section-bordered-border;
+	background-color: $layout-section-neutral-background-color;
+}
+
+.layout__section--bordered-top {
+	border-top: $layout-section-bordered-border;
+}
+
+.layout__section--bordered-bottom {
+	border-bottom: $layout-section-bordered-border;
+}
+
+.layout__section--rounded {
+	@include media(0, $range-hand) {
+		border-radius: $layout-section-rounded-border-radius-hand-and-smaller;
+	}
+	@include media($range-lap, false) {
+		border-radius: $layout-section-rounded-border-radius-lap-and-larger;
+	}
+
+	> :first-child {
+		@include media(0, $range-hand) {
+			border-top-left-radius: $layout-section-rounded-border-radius-hand-and-smaller;
+			border-top-right-radius: $layout-section-rounded-border-radius-hand-and-smaller;
+		}
+		@include media($range-lap, false) {
+			border-top-left-radius: $layout-section-rounded-border-radius-lap-and-larger;
+			border-top-right-radius: $layout-section-rounded-border-radius-lap-and-larger;
+		}
+	}
+
+	> :last-child {
+		@include media(0, $range-hand) {
+			border-bottom-right-radius: $layout-section-rounded-border-radius-hand-and-smaller;
+			border-bottom-left-radius: $layout-section-rounded-border-radius-hand-and-smaller;
+		}
+		@include media($range-lap, false) {
+			border-bottom-right-radius: $layout-section-rounded-border-radius-lap-and-larger;
+			border-bottom-left-radius: $layout-section-rounded-border-radius-lap-and-larger;
+		}
+	}
+}
+
+.layout__section--rounded-top {
+	@include media(0, $range-hand) {
+		border-top-left-radius: $layout-section-rounded-border-radius-hand-and-smaller;
+		border-top-right-radius: $layout-section-rounded-border-radius-hand-and-smaller;
+	}
+	@include media($range-lap, false) {
+		border-top-left-radius: $layout-section-rounded-border-radius-lap-and-larger;
+		border-top-right-radius: $layout-section-rounded-border-radius-lap-and-larger;
+	}
+
+	> :first-child {
+		@include media(0, $range-hand) {
+			border-top-left-radius: $layout-section-rounded-border-radius-hand-and-smaller;
+			border-top-right-radius: $layout-section-rounded-border-radius-hand-and-smaller;
+		}
+		@include media($range-lap, false) {
+			border-top-left-radius: $layout-section-rounded-border-radius-lap-and-larger;
+			border-top-right-radius: $layout-section-rounded-border-radius-lap-and-larger;
+		}
+	}
+}
+
+.layout__section--rounded-bottom {
+	@include media(0, $range-hand) {
+		border-bottom-right-radius: $layout-section-rounded-border-radius-hand-and-smaller;
+		border-bottom-left-radius: $layout-section-rounded-border-radius-hand-and-smaller;
+	}
+	@include media($range-lap, false) {
+		border-bottom-right-radius: $layout-section-rounded-border-radius-lap-and-larger;
+		border-bottom-left-radius: $layout-section-rounded-border-radius-lap-and-larger;
+	}
+
+	> :last-child {
+		@include media(0, $range-hand) {
+			border-bottom-right-radius: $layout-section-rounded-border-radius-hand-and-smaller;
+			border-bottom-left-radius: $layout-section-rounded-border-radius-hand-and-smaller;
+		}
+		@include media($range-lap, false) {
+			border-bottom-right-radius: $layout-section-rounded-border-radius-lap-and-larger;
+			border-bottom-left-radius: $layout-section-rounded-border-radius-lap-and-larger;
+		}
+	}
+}
+
+.layout__section--colored {
+	background-color: $layout-section-colored-background-color;
+}
+
+.layout__section--light {
+	background-color: $layout-section-light-background-color;
+}
+
+.layout__section--dark {
+	background-color: $layout-section-dark-background-color;
+}
+
+.layout__section--elevated {
+	box-shadow: $layout-section-elevated-box-shadow;
+}
+
+.layout__section--fitted {
+	flex-grow: 0;
+
+	&:last-child {
+		flex-grow: 0;
+	}
+}
+
+.layout__section--sticky-top {
+	position: sticky;
+	top: 0;
+}
+
+.layout__section--sticky-bottom {
+	position: sticky;
+	bottom: 0;
+}
+
+.layout__section--wrapping {
+	flex-wrap: wrap;
+}
+
+.layout__section--left-aligning {
+	align-items: flex-start;
+}
+
+.layout__section--right-aligning {
+	align-items: flex-end;
+}
+
+.layout__section--vertical-centering {
+	justify-content: center;
+}
+
+.layout__section--centering {
+	align-items: center;
+	justify-content: center;
+}
+
+.layout__inner {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	flex-shrink: 0;
+	margin-right: auto;
+	margin-left: auto;
+	max-width: $spacing * 160;
+	width: 100%;
+
+	@include media(0, $range-palm) {
+		padding: $layout-default-spacing-palm-and-smaller;
+	}
+	@include media($range-hand) {
+		padding: $layout-default-spacing-hand;
+	}
+	@include media($range-lap) {
+		padding: $layout-default-spacing-lap;
+	}
+	@include media($range-desk, false) {
+		padding: $layout-default-spacing-desk-and-larger;
+	}
+}
+
+.layout__inner--padded-0 {
+	padding: 0;
+}
+
+@each $layout-spacing-variation-city-block, $layout-spacing-variation-ranges in $layout-spacing-variations {
+
+	.layout__inner--padded-#{$layout-spacing-variation-city-block} {
+		@include layout-get-ranges('padding', $layout-spacing-variation-ranges);
+	}
+}
+
+.layout__inner--padded-top-bottom-0 {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+@each $layout-spacing-variation-city-block, $layout-spacing-variation-ranges in $layout-spacing-variations {
+
+	.layout__inner--padded-top-bottom-#{$layout-spacing-variation-city-block} {
+		@include layout-get-ranges(('padding-top', 'padding-bottom'), $layout-spacing-variation-ranges);
+	}
+}
+
+.layout__inner--padded-left-right-0 {
+	padding-right: 0;
+	padding-left: 0;
+}
+
+@each $layout-spacing-variation-city-block, $layout-spacing-variation-ranges in $layout-spacing-variations {
+
+	.layout__inner--padded-left-right-#{$layout-spacing-variation-city-block} {
+		@include layout-get-ranges(('padding-right', 'padding-left'), $layout-spacing-variation-ranges);
+	}
+}
+
+.layout__inner--padded-top-0 {
+	padding-top: 0;
+}
+
+@each $layout-spacing-variation-city-block, $layout-spacing-variation-ranges in $layout-spacing-variations {
+
+	.layout__inner--padded-top-#{$layout-spacing-variation-city-block} {
+		@include layout-get-ranges('padding-top', $layout-spacing-variation-ranges);
+	}
+}
+
+.layout__inner--padded-right-0 {
+	padding-right: 0;
+}
+
+@each $layout-spacing-variation-city-block, $layout-spacing-variation-ranges in $layout-spacing-variations {
+
+	.layout__inner--padded-right-#{$layout-spacing-variation-city-block} {
+		@include layout-get-ranges('padding-right', $layout-spacing-variation-ranges);
+	}
+}
+
+.layout__inner--padded-bottom-0 {
+	padding-bottom: 0;
+}
+
+@each $layout-spacing-variation-city-block, $layout-spacing-variation-ranges in $layout-spacing-variations {
+
+	.layout__inner--padded-bottom-#{$layout-spacing-variation-city-block} {
+		@include layout-get-ranges('padding-bottom', $layout-spacing-variation-ranges);
+	}
+}
+
+.layout__inner--padded-left-0 {
+	padding-left: 0;
+}
+
+@each $layout-spacing-variation-city-block, $layout-spacing-variation-ranges in $layout-spacing-variations {
+
+	.layout__inner--padded-left-#{$layout-spacing-variation-city-block} {
+		@include layout-get-ranges('padding-left', $layout-spacing-variation-ranges);
+	}
+}
+
+.layout__inner--fitted {
+	max-width: none;
+	width: auto;
+}
+
+.layout__inner--stretched {
+	max-width: none;
+}
+
+.layout__inner--expanded {
+	max-width: $spacing * 280;
+}
+
+.layout__inner--extended {
+	max-width: $spacing * 240;
+}
+
+.layout__inner--wide {
+	max-width: $spacing * 200;
+}
+
+.layout__inner--narrow {
+	max-width: $spacing * 120;
+}
+
+.layout__inner--condensed {
+	max-width: $spacing * 80;
+}
+
+.layout__inner--compressed {
+	max-width: $spacing * 40;
+}
+
+.layout__columns {
+	display: flex;
+	flex-wrap: wrap;
+
+	@include media(0, $range-hand) {
+		margin: $layout-column-spacing-hand-and-smaller * -1;
+	}
+	@include media($range-lap, false) {
+		margin: $layout-column-spacing-lap-and-larger * -1;
+	}
+}
+
+.layout__columns--spacing-0 {
+	margin: 0;
+}
+
+.layout__columns--spacing-90 {
+	@include media(0, $range-hand) {
+		margin: $layout-column-spacing-90-hand-and-smaller * -1;
+	}
+	@include media($range-lap, false) {
+		margin: $layout-column-spacing-90-lap-and-larger * -1;
+	}
+}
+
+.layout__columns--not-wrapping-lap-and-larger {
+	@include media($range-lap, false) {
+		flex-wrap: nowrap;
+	}
+}
+
+.layout__column {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+
+	@include media(0, $range-hand) {
+		flex-basis: $spacing * 30;
+		margin: $layout-column-spacing-hand-and-smaller;
+	}
+	@include media($range-lap, false) {
+		flex-basis: $spacing * 40;
+		margin: $layout-column-spacing-lap-and-larger;
+	}
+
+	.layout__columns--spacing-90 > & {
+		@include media(0, $range-hand) {
+			margin: $layout-column-spacing-90-hand-and-smaller;
+		}
+		@include media($range-lap, false) {
+			margin: $layout-column-spacing-90-lap-and-larger;
+		}
+	}
+
+	.layout__columns--spacing-0 > & {
+		margin: 0;
+	}
+}
+
+.layout__column--one-half {
+	flex-basis: $spacing * 35;
+
+	@include media(0, $range-hand) {
+		min-width: calc(50% - #{$layout-column-spacing-hand-and-smaller * 2});
+	}
+	@include media($range-lap, false) {
+		min-width: calc(50% - #{$layout-column-spacing-lap-and-larger * 2});
+	}
+
+	.layout__columns--spacing-90 > & {
+		@include media(0, $range-hand) {
+			min-width: calc(50% - #{$layout-column-spacing-90-hand-and-smaller * 2});
+		}
+		@include media($range-lap, false) {
+			min-width: calc(50% - #{$layout-column-spacing-90-lap-and-larger * 2});
+		}
+	}
+
+	.layout__columns--spacing-0 > & {
+		min-width: 50%;
+	}
+}
+
+.layout__column--one-third {
+	flex-basis: $spacing * 35;
+
+	@include media(0, $range-hand) {
+		min-width: calc(#{$layout-column-one-third-percentage} - #{$layout-column-spacing-hand-and-smaller * 2});
+	}
+	@include media($range-lap, false) {
+		min-width: calc(#{$layout-column-one-third-percentage} - #{$layout-column-spacing-lap-and-larger * 2});
+	}
+
+	.layout__columns--spacing-90 > & {
+		@include media(0, $range-hand) {
+			min-width: calc(#{$layout-column-one-third-percentage} - #{$layout-column-spacing-90-hand-and-smaller * 2});
+		}
+		@include media($range-lap, false) {
+			min-width: calc(#{$layout-column-one-third-percentage} - #{$layout-column-spacing-90-lap-and-larger * 2});
+		}
+	}
+
+	.layout__columns--spacing-0 > & {
+		min-width: $layout-column-one-third-percentage;
+	}
+}
+
+.layout__column--two-thirds {
+	flex-basis: $spacing * 60;
+	flex-grow: 2;
+
+	@include media(0, $range-hand) {
+		min-width: calc(#{$layout-column-two-thirds-percentage} - #{$layout-column-spacing-hand-and-smaller * 2});
+	}
+	@include media($range-lap, false) {
+		min-width: calc(#{$layout-column-two-thirds-percentage} - #{$layout-column-spacing-lap-and-larger * 2});
+	}
+
+	.layout__columns--spacing-90 > & {
+		@include media(0, $range-hand) {
+			min-width: calc(#{$layout-column-two-thirds-percentage} - #{$layout-column-spacing-90-hand-and-smaller * 2});
+		}
+		@include media($range-lap, false) {
+			min-width: calc(#{$layout-column-two-thirds-percentage} - #{$layout-column-spacing-90-lap-and-larger * 2});
+		}
+	}
+
+	.layout__columns--spacing-0 > & {
+		min-width: $layout-column-two-thirds-percentage;
+	}
+}
