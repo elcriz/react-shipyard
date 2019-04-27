@@ -1,5 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import Dialog from './library/components/Dialog/Dialog';
+import Button from './library/controls/Button/Button';
+import Link from './library/controls/Link/Link';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+export {
+    Dialog,
+    Button,
+    Link
+};
