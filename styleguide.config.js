@@ -1,5 +1,6 @@
 const path = require('path');
 const sections = require('./config/sections.js');
+const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
     title: 'Shipyard',
@@ -7,6 +8,13 @@ module.exports = {
     require: [
         path.join(__dirname, 'src/scss/main.scss')
     ],
+    getComponentPathLine: (pathname) => {
+        if (!isProduction) {
+            return pathname;
+        }
+        const { name } = path.parse(pathname);
+        return `import { ${name} } from 'react-shipyard';`;
+    },
     sections,
     theme: {
         color: {
