@@ -4,6 +4,10 @@
   "version": "0.1.0",
   "author": "Christiaan Hemerik",
   "license": "MIT",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/elcriz/react-shipyard"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
