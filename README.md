@@ -31,7 +31,7 @@ const Example = () => (
     <Dialog type="success">
         <p>Installation was successful!</p>
     </Dialog>
-)
+);
 ```
 
 ## Documentation
