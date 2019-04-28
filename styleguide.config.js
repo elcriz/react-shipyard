@@ -1,14 +1,13 @@
 const path = require('path');
-const sections = require('./config/sections.js');
 const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
     title: 'React Shipyard',
     pagePerSection: true,
     require: [
-        path.join(__dirname, 'src/scss/main.scss')
+        path.join(__dirname, 'src/scss/main.scss'),
+        path.resolve(__dirname, 'src/setup.js')
     ],
-    sections,
     skipComponentsWithoutExample: true,
     getComponentPathLine: (pathname) => {
         if (!isProduction) {
@@ -19,11 +18,37 @@ module.exports = {
     },
     theme: {
         color: {
-            link: '#049ccf',
+            link: '#3185FC',
             linkHover: '#2B3847',
             baseBackground: '#fff',
             border: '#d1d5da',
             sidebarBackground: '#f6f8fa'
         }
-    }
+    },
+    sections: [
+        {
+            name: 'Overview',
+            content: 'docs/Welcome.md'
+        },
+        {
+            name: 'About',
+            content: 'docs/About.md'
+        },
+        {
+            name: 'Getting Started',
+            content: 'docs/GetStarted.md'
+        },
+        {
+            name: 'Components',
+            components: './src/library/components/[A-Z]*/[A-Z]*.js'
+        },
+        {
+            name: 'Controls',
+            components: './src/library/controls/[A-Z]*/[A-Z]*.js'
+        },
+        {
+            name: 'Layouts',
+            components: './src/library/layouts/[A-Z]*/[A-Z]*.js'
+        }
+    ]
 };
