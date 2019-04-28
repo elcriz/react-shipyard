@@ -39,6 +39,7 @@ export const Dialog = ({
 );
 
 Dialog.propTypes = {
+
     /**
      * Dialog type. If one of these is set, an appropriate icon will be displayed inside the dialog as well.
      */
