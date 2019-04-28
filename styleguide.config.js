@@ -1,14 +1,18 @@
 const path = require('path');
+const MiniHtmlWebpackPlugin = require('mini-html-webpack-plugin');
 const sections = require('./config/sections.js');
+
+const { generateCSSReferences, generateJSReferences } = MiniHtmlWebpackPlugin;
 const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
-    title: 'Shipyard',
+    title: 'React Shipyard',
     pagePerSection: true,
     require: [
         path.join(__dirname, 'src/scss/main.scss')
     ],
-    webpackConfig: require('./config/webpack.config.js'),
+    sections,
+    skipComponentsWithoutExample: true,
     getComponentPathLine: (pathname) => {
         if (!isProduction) {
             return pathname;
@@ -16,7 +20,6 @@ module.exports = {
         const { name } = path.parse(pathname);
         return `import { ${name} } from 'react-shipyard';`;
     },
-    sections,
     theme: {
         color: {
             link: '#049ccf',

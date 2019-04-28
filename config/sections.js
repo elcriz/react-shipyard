@@ -1,15 +1,15 @@
 module.exports = [
     {
         name: 'Overview',
-        content: 'src/docs/Welcome.md'
+        content: 'docs/Welcome.md'
     },
     {
         name: 'About',
-        content: 'src/docs/About.md'
+        content: 'docs/About.md'
     },
     {
         name: 'Getting Started',
-        content: 'src/docs/GetStarted.md'
+        content: 'docs/GetStarted.md'
     },
     {
         name: 'Components',

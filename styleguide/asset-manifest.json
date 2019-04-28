@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.css": "/react-shipyard/static/css/main.f6649b3c.chunk.css",
-    "main.js": "/react-shipyard/build/main.57283567.js",
+    "main.css": "/react-shipyard/static/css/main.2c7b2bfe.chunk.css",
+    "main.js": "/react-shipyard/build/main.5a6d3745.js",
     "runtime~main.js": "/react-shipyard/build/bundle.feb19782.js",
-    "build/2.2fdd6681.js": "/react-shipyard/build/2.2fdd6681.js",
+    "build/2.ab4c3522.js": "/react-shipyard/build/2.ab4c3522.js",
     "index.html": "/react-shipyard/index.html",
-    "precache-manifest.8727a698cd6c3998a1806e900154bf0d.js": "/react-shipyard/precache-manifest.8727a698cd6c3998a1806e900154bf0d.js",
+    "precache-manifest.635111e2d2e1570708847d3ea0174526.js": "/react-shipyard/precache-manifest.635111e2d2e1570708847d3ea0174526.js",
     "service-worker.js": "/react-shipyard/service-worker.js",
-    "static/css/main.f6649b3c.chunk.css.map": "/react-shipyard/static/css/main.f6649b3c.chunk.css.map"
+    "static/css/main.2c7b2bfe.chunk.css.map": "/react-shipyard/static/css/main.2c7b2bfe.chunk.css.map"
   }
 }
