@@ -1,5 +1,5 @@
 const path = require('path');
-const sections = require('./config/sections.js');
+const sections = require('./_config/sections.js');
 const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
