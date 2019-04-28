@@ -8,6 +8,12 @@ Install from NPM:
 npm install --save-dev react-shipyard
 ```
 
+Install `node-sass` in order to use the SASS variables:
+
+```bash
+npm install --save-dev node-sass
+```
+
 ### Usage
 
 Import it into your code:
