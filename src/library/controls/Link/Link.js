@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 export const Link = ({
+    className,
     children,
     to,
     title,
@@ -10,7 +11,7 @@ export const Link = ({
 }) => (
     <a
         {...props}
-        className={classnames('link')}
+        className={classnames(className, 'link')}
         href={to || '#'}
         title={title}
     >
@@ -19,10 +20,11 @@ export const Link = ({
 );
 
 Link.propTypes = {
+
     /**
-     * Button content.
+     * CSS class name.
      */
-    children: PropTypes.node.isRequired,
+    className: PropTypes.string,
 
     /**
      * URL (`href` value).
@@ -30,9 +32,14 @@ Link.propTypes = {
     to: PropTypes.string,
 
     /**
-     * Button title.
+     * Link title.
      */
     title: PropTypes.string,
+
+    /**
+     * Link content.
+     */
+    children: PropTypes.node.isRequired,
 };
 
 export default Link;
