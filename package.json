@@ -1,14 +1,21 @@
 {
   "name": "react-shipyard",
   "description": "A React Component library with accessible, semantically correct React components.",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "author": "Christiaan Hemerik",
   "license": "MIT",
   "homepage": "http://christiaanhemerik.com/react-shipyard/",
+  "main": "lib/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/elcriz/react-shipyard"
   },
+  "keywords": [
+      "react",
+      "styleguide",
+      "components",
+      "bem"
+  ],
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
