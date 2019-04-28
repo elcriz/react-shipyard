@@ -1,7 +1,7 @@
 {
   "name": "react-shipyard",
   "description": "A React Component library with accessible, semantically correct React components.",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "author": "Christiaan Hemerik",
   "license": "MIT",
   "homepage": "http://christiaanhemerik.com/react-shipyard/",
@@ -23,7 +23,7 @@
     "test": "node scripts/test.js",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
-    "prepublish": "npm run npm-build"
+    "prepare": "npm run build"
   },
   "dependencies": {
     "@babel/core": "7.4.3",
