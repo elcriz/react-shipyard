@@ -1,5 +1,7 @@
 # React Shipyard
 
+[![Version](https://img.shields.io/npm/v/react-shipyard.svg?style=flat-square)](https://www.npmjs.com/package/react-shipyard)
+
 Shipyard is a collection of ready to use, accessible, semantically correct React components.
 
 All components in this collection were designed with the following in mind. They must be:
