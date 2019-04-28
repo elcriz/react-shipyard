@@ -1,0 +1,51 @@
+$breadcrumb-link-color: $color-text-grey !default;
+$breadcrumb-link-hover-color: $color-text !default;
+$breadcrumb-link-last-child-color: $color-text !default;
+$breadcrumb-link-font-size: $font-size-100 !default;
+$breadcrumb-link-font-size-hand: $font-size-70 !default;
+$breadcrumb-link-font-weight: $font-weight-70 !default;
+
+.breadcrumb {
+    display: inline-block;
+    margin-left: -$spacing;
+}
+
+.breadcrumb__link {
+    display: inline-block;
+    position: relative;
+    margin-left: $spacing;
+    margin-right: $spacing;
+    font-size: $breadcrumb-link-font-size;
+    font-weight: $breadcrumb-link-font-weight;
+    color: $breadcrumb-link-color;
+
+    &:hover,
+    &:focus {
+        text-decoration: underline;
+        color: $breadcrumb-link-hover-color;
+    }
+
+    &:not(:last-child)::after {
+        display: inline-block;
+        position: absolute;
+        right: -$spacing * 1.25;
+        top: 0;
+        content: '/';
+        pointer-events: none;
+    }
+
+    &:last-child {
+        color: $breadcrumb-link-last-child-color;
+        pointer-events: none;
+        cursor: default;
+
+        &:hover,
+        &:focus {
+            text-decoration: none;
+        }
+    }
+
+    @include media(0, $range-hand) {
+        font-size: $breadcrumb-link-font-size-hand;
+    }
+}
