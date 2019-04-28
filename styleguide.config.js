@@ -1,8 +1,5 @@
 const path = require('path');
-const MiniHtmlWebpackPlugin = require('mini-html-webpack-plugin');
 const sections = require('./config/sections.js');
-
-const { generateCSSReferences, generateJSReferences } = MiniHtmlWebpackPlugin;
 const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
