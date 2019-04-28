@@ -1,5 +1,7 @@
 ### Installation
 
+[![Version](https://img.shields.io/npm/v/react-shipyard.svg?style=flat-square)](https://www.npmjs.com/package/react-shipyard)
+
 Install from NPM:
 
 ```bash
