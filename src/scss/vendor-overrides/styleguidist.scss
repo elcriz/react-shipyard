@@ -5,13 +5,27 @@ h1#overview {
 }
 
 h2[id='shipyard-is-a-collection-of-ready-to-use-accessible-semantically-correct-react-components'] {
-    font-weight: bold;
+    font-weight: $font-weight-70;
+    font-size: $font-size-700;
     line-height: $line-height-60;
     margin-bottom: $spacing * 4;
+    color: $color-harbour-blue;
+}
+
+a[href='/#!/Overview'] {
+    display: none;
 }
 
 div[data-preview='Button'] {
     button {
         margin-right: $rsg-preview-button-margin-right;
+    }
+}
+
+div[data-preview='TextInput'] {
+    input {
+        &:not(:first-child) {
+            margin-top: $spacing;
+        }
     }
 }
