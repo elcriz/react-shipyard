@@ -18,6 +18,7 @@ module.exports = {
         publicPath: '/lib/',
         globalObject: `typeof self !== 'undefined' ? self : this` // eslint-disable-line quotes
     },
+    devtool: 'source-map',
     mode: isProduction ? 'production' : 'development',
     module: {
         rules: [
