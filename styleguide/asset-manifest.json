@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.css": "/react-shipyard/static/css/main.f6649b3c.chunk.css",
+    "main.js": "/react-shipyard/build/main.57283567.js",
+    "runtime~main.js": "/react-shipyard/build/bundle.feb19782.js",
+    "build/2.2fdd6681.js": "/react-shipyard/build/2.2fdd6681.js",
+    "index.html": "/react-shipyard/index.html",
+    "precache-manifest.8727a698cd6c3998a1806e900154bf0d.js": "/react-shipyard/precache-manifest.8727a698cd6c3998a1806e900154bf0d.js",
+    "service-worker.js": "/react-shipyard/service-worker.js",
+    "static/css/main.f6649b3c.chunk.css.map": "/react-shipyard/static/css/main.f6649b3c.chunk.css.map"
+  }
+}

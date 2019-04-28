@@ -1,5 +1,5 @@
 const path = require('path');
-const sections = require('./_config/sections.js');
+const sections = require('./config/sections.js');
 const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
@@ -8,6 +8,7 @@ module.exports = {
     require: [
         path.join(__dirname, 'src/scss/main.scss')
     ],
+    webpackConfig: require('./config/webpack.config.js'),
     getComponentPathLine: (pathname) => {
         if (!isProduction) {
             return pathname;
