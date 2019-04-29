@@ -5,7 +5,7 @@
 Install from NPM:
 
 ```bash
-npm install --save-dev react-shipyard
+npm install --save react-shipyard
 ```
 
 Install `node-sass` in order to use the SASS variables:
