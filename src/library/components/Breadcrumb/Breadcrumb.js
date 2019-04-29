@@ -11,7 +11,7 @@ export const Breadcrumb = ({
         aria-label="Breadcrumb"
     >
         {React.Children.map(children, (child) => {
-            if (!child) {
+            if (!child || Array.isArray(child)) {
                 return null;
             }
             return React.cloneElement(child, {
