@@ -10,11 +10,14 @@ export const Breadcrumb = ({
         className="breadcrumb"
         aria-label="Breadcrumb"
     >
-        {React.Children.map(children, child => (
-            React.cloneElement(child, {
+        {React.Children.map(children, (child) => {
+            if (!child) {
+                return null;
+            }
+            return React.cloneElement(child, {
                 className: 'breadcrumb__link link--no-underline'
-            })
-        ))}
+            });
+        })}
     </nav>
 );
 
