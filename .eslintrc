@@ -14,14 +14,16 @@
     },
     "rules": {
         "comma-dangle": 0,
+        "global-require": 0,
         "indent": [2, 4, { "SwitchCase": 1 }],
         "import/newline-after-import": 0,
-        "global-require": 0,
+        "jsx-a11y/label-has-associated-control": 0,
+        "jsx-a11y/label-has-for": 0,
+        "max-len": [2, 255],
         "react/jsx-filename-extension": 0,
         "react/jsx-indent": [2, 4],
         "react/jsx-indent-props": [2, 4],
         "react/no-array-index-key": 0,
-        "react/require-default-props": 0,
-        "max-len": [2, 255]
+        "react/require-default-props": 0
     }
 }
