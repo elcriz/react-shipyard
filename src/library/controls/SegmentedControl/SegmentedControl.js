@@ -1,7 +1,14 @@
-import React, { useState }  from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
+/**
+ * Function representing a SegmentedControl component.
+ * @todo Add focus/active state
+ * @todo Check keyboard navigation
+ * @param {object} - Component props
+ * @return {Node}
+ */
 export const SegmentedControl = ({
     label,
     options,
