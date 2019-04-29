@@ -99,7 +99,7 @@ SegmentedControl.propTypes = {
      * Gets called when the user changes the value.
      * @param {any} event The selected value
      */
-    onChange: PropTypes.func.isRequired,
+    onChange: PropTypes.func,
 
     /**
      * Display the segmented control in a smaller version.
