@@ -13,11 +13,11 @@ export const TextInput = ({
 }) => {
     const [currentValue, setValue] = useState(value || '');
 
-    const handleChange = (event) => {
-        setValue(event.target.value);
+    const handleChange = (newValue) => {
         if (onChange) {
-            onChange(currentValue);
+            onChange(newValue);
         }
+        setValue(newValue);
     };
 
     return (
@@ -32,10 +32,11 @@ export const TextInput = ({
                     })}
                     disabled={isDisabled}
                     placeholder={placeholder}
-                    onChange={handleChange}
-                >
-                    {currentValue}
-                </textarea>
+                    value={currentValue}
+                    onChange={(event) => {
+                        handleChange(event.target.value);
+                    }}
+                />
             )}
             {!isMultiline && (
                 <input
@@ -48,7 +49,9 @@ export const TextInput = ({
                     placeholder={placeholder}
                     type="text"
                     value={currentValue}
-                    onChange={handleChange}
+                    onChange={(event) => {
+                        handleChange(event.target.value);
+                    }}
                 />
             )}
         </React.Fragment>
