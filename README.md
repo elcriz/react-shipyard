@@ -17,7 +17,13 @@ All components in this collection were designed with the following in mind. They
 Install from NPM:
 
 ```bash
-npm install --save-dev react-shipyard
+npm install --save react-shipyard
+```
+
+Install `node-sass` in order to use the SASS variables:
+
+```bash
+npm install --save-dev node-sass
 ```
 
 ## Usage
