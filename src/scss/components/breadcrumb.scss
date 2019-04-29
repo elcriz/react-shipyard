@@ -4,6 +4,7 @@ $breadcrumb-link-last-child-color: $color-text !default;
 $breadcrumb-link-font-size: $font-size-100 !default;
 $breadcrumb-link-font-size-hand: $font-size-70 !default;
 $breadcrumb-link-font-weight: $font-weight-70 !default;
+$breadcrumb-link-font-weight-hand: $font-weight-100 !default;
 
 .breadcrumb {
     display: inline-block;
@@ -47,5 +48,6 @@ $breadcrumb-link-font-weight: $font-weight-70 !default;
 
     @include media(0, $range-hand) {
         font-size: $breadcrumb-link-font-size-hand;
+        font-weight: $breadcrumb-link-font-weight-hand;
     }
 }
