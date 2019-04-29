@@ -1,5 +1,33 @@
 $rsg-preview-button-margin-right: $spacing / 2;
 
+.rsg--sidebar-4 {
+    width: 250px !important;
+
+    @media screen and (max-width: 600px) {
+        width: auto !important;
+    }
+}
+
+.rsg--logo-5 {
+    h1 {
+        color: $color-ui;
+        font-size: $font-size-400;
+        font-weight: $font-weight-200;
+    }
+}
+
+.rsg--content-3 {
+    max-width: 1184px !important;
+}
+
+.rsg--hasSidebar-2 {
+    padding-left: 250px !important;
+
+    @media screen and (max-width: 600px) {
+        padding-left: 0 !important;
+    }
+}
+
 h1#overview {
     display: none;
 }
@@ -10,6 +38,10 @@ h2[id='shipyard-is-a-collection-of-ready-to-use-accessible-semantically-correct-
     line-height: $line-height-60;
     margin-bottom: $spacing * 4;
     color: $color-harbour-blue;
+
+    @media screen and (max-width: 600px) {
+        font-size: $font-size-600;
+    }
 }
 
 a[href='/#!/Overview'] {
