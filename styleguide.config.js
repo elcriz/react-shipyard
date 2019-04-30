@@ -1,8 +1,10 @@
 const path = require('path');
 const isProduction = process.env.NODE_ENV === 'production';
 
+const { version } = require('./package.json');
+
 module.exports = {
-    title: 'React Shipyard',
+    title: `React Shipyard ${version ? `v${version}` : ''}`,
     pagePerSection: true,
     require: [
         path.join(__dirname, 'src/scss/main.scss'),
