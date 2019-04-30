@@ -136,6 +136,10 @@ $segmented-control-item-border-radius: 3px !default;
         background-color: $segmented-control-focus-background-color;
     }
 
+    .segmented-control__input:focus ~ & {
+		box-shadow: inset 0 0 0 2px $color-focus;
+	}
+
     .segmented-control__input:checked ~ & {
         background-color: $segmented-control-is-checked-background-color;
         color: $segmented-control-is-checked-color;
