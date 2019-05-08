@@ -1,0 +1,29 @@
+.button-group {
+    display: flex;
+    align-items: center;
+
+    > * {
+        margin: 0 $spacing / 2;
+        flex-grow: 0;
+    }
+
+    > a {
+        margin: 0 $spacing * 2;
+    }
+}
+
+.button-group--aligned-to-end {
+    justify-content: flex-end;
+}
+
+.button-group--aligned-to-start {
+    justify-content: flex-start;
+}
+
+.button-group--aligned-centered {
+    justify-content: center;
+}
+
+.button-group--aligned-justified {
+    justify-content: space-between;
+}

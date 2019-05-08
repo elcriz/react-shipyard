@@ -1,4 +1,5 @@
 import { Breadcrumb } from './library/components/Breadcrumb/Breadcrumb';
+import { ButtonGroup } from './library/components/ButtonGroup/ButtonGroup';
 import { Dialog } from './library/components/Dialog/Dialog';
 import { Button } from './library/controls/Button/Button';
 import { DropDownMenu } from './library/controls/DropDownMenu/DropDownMenu';
