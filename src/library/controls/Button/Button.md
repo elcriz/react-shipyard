@@ -33,26 +33,26 @@ Various button states:
 />
 ```
 
-Various button types:
+Various button variants:
 
 ```js
 <Button
     label="Call to action"
-    type="call-to-action"
+    variant="call-to-action"
 />
 
 <Button
     label="Primary"
-    type="primary"
+    variant="primary"
 />
 
 <Button
     label="Secondary"
-    type="secondary"
+    variant="secondary"
 />
 ```
 
-Outlined button (available for all types):
+Outlined button (available for all variants):
 
 ```js
 <Button
