@@ -15,6 +15,7 @@ if (process.env.NODE_ENV === 'development') {
 
 export {
     Breadcrumb,
+    ButtonGroup,
     Dialog,
     Button,
     DropDownMenu,
