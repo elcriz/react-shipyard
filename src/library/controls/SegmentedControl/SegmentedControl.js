@@ -10,6 +10,7 @@ import classnames from 'classnames';
  * @return {Node}
  */
 export const SegmentedControl = ({
+    className,
     label,
     options,
     value,
@@ -30,7 +31,7 @@ export const SegmentedControl = ({
     return (
         <div
             {...props}
-            className={classnames('segmented-control', {
+            className={classnames(className, 'segmented-control', {
                 'segmented-control--inline': isInline,
                 'segmented-control--small': isSmall,
             })}
@@ -73,6 +74,11 @@ export const SegmentedControl = ({
 };
 
 SegmentedControl.propTypes = {
+
+    /**
+     * SegmentedControl class name.
+     */
+    className: PropTypes.string,
 
     /**
      * SegmentedControl field label.

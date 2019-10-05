@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 export const TextInput = ({
+    className,
     value,
     placeholder,
     onChange,
@@ -25,7 +26,7 @@ export const TextInput = ({
             {isMultiline && (
                 <textarea
                     {...props}
-                    className={classnames('text-input', {
+                    className={classnames(className, 'text-input', {
                         'text-input--multiline': true,
                         'is-valid': isValid !== undefined && isValid !== false,
                         'is-invalid': isValid !== undefined && !isValid,
@@ -41,7 +42,7 @@ export const TextInput = ({
             {!isMultiline && (
                 <input
                     {...props}
-                    className={classnames('text-input', {
+                    className={classnames(className, 'text-input', {
                         'is-valid': isValid !== undefined && isValid !== false,
                         'is-invalid': isValid !== undefined && !isValid,
                     })}
@@ -59,6 +60,11 @@ export const TextInput = ({
 };
 
 TextInput.propTypes = {
+
+    /**
+     * TextInput class name.
+     */
+    className: PropTypes.string,
 
     /**
      * The (default) value.

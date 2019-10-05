@@ -3,13 +3,14 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 export const ButtonGroup = ({
+    className,
     alignButtons,
     children,
     ...props
 }) => (
     <div
         {...props}
-        className={classnames('button-group', {
+        className={classnames(className, 'button-group', {
             'button-group--aligned-to-end': alignButtons === 'end',
             'button-group--aligned-to-start': alignButtons === 'start',
             'button-group--aligned-centered': alignButtons === 'center',
@@ -21,13 +22,19 @@ export const ButtonGroup = ({
 );
 
 ButtonGroup.propTypes = {
+
     /**
-     * Button alignment.
+     * ButtonGroup class name.
+     */
+    className: PropTypes.string,
+
+    /**
+     * ButtonGroup alignment.
      */
     alignButtons: PropTypes.oneOf(['end', 'start', 'center', 'justify']),
 
     /**
-     * Button group content.
+     * ButtonGroup group content.
      */
     children: PropTypes.node.isRequired
 };

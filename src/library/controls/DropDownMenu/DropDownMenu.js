@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 export const DropDownMenu = ({
+    className,
     options,
     size,
     maxWidth,
@@ -12,7 +13,7 @@ export const DropDownMenu = ({
 }) => (
     <div
         {...props}
-        className={classnames('drop-down-menu', {
+        className={classnames(className, 'drop-down-menu', {
             'drop-down-menu--90': size === 90,
             'drop-down-menu--max-width-60': maxWidth === 60,
             'drop-down-menu--max-width-70': maxWidth === 70,
@@ -40,6 +41,11 @@ export const DropDownMenu = ({
 );
 
 DropDownMenu.propTypes = {
+
+    /**
+     * Dropdown class name.
+     */
+    className: PropTypes.string,
 
     /**
      * Dropdown size.

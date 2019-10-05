@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 export const Button = ({
+    className,
     label,
-    type,
+    variant,
     size,
     isFull,
     isOutlined,
@@ -17,10 +18,10 @@ export const Button = ({
 }) => (
     <button
         {...props}
-        className={classnames('button', {
-            'button--call-to-action': type === 'call-to-action',
-            'button--primary': type === 'primary',
-            'button--secondary': type === 'secondary',
+        className={classnames(className, 'button', {
+            'button--call-to-action': variant === 'call-to-action',
+            'button--primary': variant === 'primary',
+            'button--secondary': variant === 'secondary',
             'button--60': size === 60,
             'button--70': size === 70,
             'button--80': size === 80,
@@ -41,15 +42,21 @@ export const Button = ({
 );
 
 Button.propTypes = {
+
+    /**
+     * Button class name.
+     */
+    className: PropTypes.string,
+
     /**
      * Button label.
      */
     label: PropTypes.string.isRequired,
 
     /**
-     * Button type.
+     * Button variant.
      */
-    type: PropTypes.oneOf(['call-to-action', 'primary', 'secondary']),
+    variant: PropTypes.oneOf(['call-to-action', 'primary', 'secondary']),
 
     /**
      * Button (relative) size.

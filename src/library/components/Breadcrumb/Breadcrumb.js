@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 
 export const Breadcrumb = ({
+    className,
     children,
     ...props
 }) => (
     <nav
         {...props}
-        className="breadcrumb"
+        className={classnames(className, 'breadcrumb')}
         aria-label="Breadcrumb"
     >
         {React.Children.map(children, (child) => {
@@ -22,6 +24,11 @@ export const Breadcrumb = ({
 );
 
 Breadcrumb.propTypes = {
+
+    /**
+     * Breadcrumb class name.
+     */
+    className: PropTypes.string,
 
     /**
      * Breadcrumb content.
