@@ -92,6 +92,7 @@ DropDownMenu.propTypes = {
 
     /**
      * Gets called when the user (re)selects an option.
+     * @param {any} event The selected option value
      */
     onChange: PropTypes.func
 };
