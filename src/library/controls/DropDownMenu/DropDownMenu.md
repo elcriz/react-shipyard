@@ -7,6 +7,9 @@ Dropdown menu example:
         { key: 'Option 2', value: 'B' },
         { key: 'Option 3', value: 'C' }
     ]}
+    onChange={(selectedValue) => {
+        console.log('Drop down menu value got changed!', selectedValue);
+    }}
 />
 ```
 Disabled dropdown menu:
