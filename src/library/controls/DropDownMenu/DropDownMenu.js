@@ -5,8 +5,10 @@ import classnames from 'classnames';
 export const DropDownMenu = ({
     className,
     options,
+    defaultValue,
     size,
     maxWidth,
+    onChange,
     isValid,
     isDisabled,
     ...props
@@ -26,6 +28,8 @@ export const DropDownMenu = ({
         <select
             className="drop-down-menu__select"
             disabled={!!isDisabled}
+            value={defaultValue}
+            onChange={onChange}
         >
             {options && options.map(({ key, value }, optionIndex) => (
                 <option
@@ -76,7 +80,20 @@ DropDownMenu.propTypes = {
             PropTypes.string,
             PropTypes.number
         ]),
-    })).isRequired
+    })).isRequired,
+
+    /**
+     * Default value.
+     */
+    defaultValue: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number
+    ]),
+
+    /**
+     * Gets called when the user (re)selects an option.
+     */
+    onChange: PropTypes.func
 };
 
 DropDownMenu.defaultProps = {
