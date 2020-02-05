@@ -2,8 +2,8 @@
   "name": "react-shipyard",
   "version": "0.1.30",
   "description": "React Shipyard is a React Component library with accessible, semantically correct React components.",
-  "main": "src/index.js",
-  "module": "src/index.js",
+  "main": "lib/index.js",
+  "module": "lib/es/index.js",
   "scripts": {
     "test": "",
     "build": "webpack --config webpack.config.js",
