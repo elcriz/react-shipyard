@@ -9,7 +9,7 @@ import classnames from 'classnames';
  * @param {object} - Component props
  * @return {Node}
  */
-export const SegmentedControl = ({
+const SegmentedControl = ({
     className,
     label,
     options,

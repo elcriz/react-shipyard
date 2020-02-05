@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-export const Button = ({
+const Button = ({
     className,
     label,
     variant,
