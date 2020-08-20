@@ -10,6 +10,7 @@ import classnames from 'classnames';
  * @return {Node}
  */
 const SegmentedControl = ({
+	id,
     className,
     label,
     options,
@@ -19,14 +20,29 @@ const SegmentedControl = ({
     isInline,
     ...props
 }) => {
-    const [currentValue, setValue] = useState(value || '');
+	const isMultiSelect = value && Array.isArray(value);
+	const [currentValue, setValue] = useState(value
+		|| (isMultiSelect ? [] : '')
+	);
 
-    const handleChange = (newValue) => {
-        if (onChange) {
-            onChange(newValue);
-        }
-        setValue(newValue);
-    };
+    const handleChange = (newValue, isChecked) => {
+		if (!isMultiSelect) {
+			setValue(newValue);
+			return;
+		}
+		setValue(oldValues => ([
+			...oldValues.filter(foundValue => foundValue !== newValue),
+			newValue
+		].filter(foundValue => isChecked
+			? foundValue !== newValue : true
+		)));
+	};
+
+	React.useEffect(() => {
+		if (onChange) {
+			onChange(currentValue);
+		}
+	}, [currentValue, onChange]);
 
     return (
         <div
@@ -45,21 +61,28 @@ const SegmentedControl = ({
             )}
             <div className="segmented-control__items">
                 {options.map((optionValue, index) => {
+					const optionId = `${id}-${index}`;
                     const serializedOptionValue = typeof optionValue === 'object' ? Object.keys(optionValue)[0] : optionValue;
-                    const inputLabel = typeof optionValue === 'object' ? optionValue[Object.keys(optionValue)] : optionValue;
+					const inputLabel = typeof optionValue === 'object' ? optionValue[Object.keys(optionValue)] : optionValue;
+					const checked = isMultiSelect
+						? (currentValue.indexOf(serializedOptionValue) !== -1)
+						: (currentValue === serializedOptionValue);
 
                     return (
                         <label
                             key={index}
-                            className={`segmented-control__item${value === serializedOptionValue ? ' is-selected' : ''}`}
+							className={`segmented-control__item${value === serializedOptionValue ? ' is-selected' : ''}`}
+							htmlFor={optionId}
                         >
                             <input
-                                className="segmented-control__input"
+								id={optionId}
+								className="segmented-control__input"
+								name={id}
                                 value={serializedOptionValue}
-                                checked={currentValue === serializedOptionValue}
-                                type="radio"
+                                checked={checked}
+                                type={isMultiSelect ? 'checkbox' : 'radio'}
                                 onChange={(event) => {
-                                    handleChange(event.target.value);
+                                    handleChange(event.target.value, checked);
                                 }}
                             />
                             <span className="segmented-control__input-label">
@@ -74,6 +97,11 @@ const SegmentedControl = ({
 };
 
 SegmentedControl.propTypes = {
+
+	/**
+     * SegmentedControl element id.
+     */
+    id: PropTypes.string.isRequired,
 
     /**
      * SegmentedControl class name.
@@ -98,8 +126,14 @@ SegmentedControl.propTypes = {
 
     /**
      * Current value.
+	 * Either `'Value 1'` or `['Value 1', 'Value 2']` or `undefined`
      */
-    value: PropTypes.string,
+    value: PropTypes.oneOf([
+		PropTypes.string,
+		PropTypes.arrayOf(
+			PropTypes.string
+		)
+	]),
 
     /**
      * Gets called when the user changes the value.

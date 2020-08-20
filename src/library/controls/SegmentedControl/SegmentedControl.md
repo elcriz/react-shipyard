@@ -28,6 +28,16 @@ SegmentedControl with key-value pair options (provided as prop `options`, see co
 />
 ```
 
+SegmentedControl with multiple, selectable options (with a `value` prop provided as an (empty) array ,see code):
+
+```js
+<SegmentedControl
+    label="This is a label"
+    options={['Option A', 'Option B', 'Option C']}
+    value={['Option A', 'Option C']}
+/>
+```
+
 Inline SegmentedControl:
 
 ```js
